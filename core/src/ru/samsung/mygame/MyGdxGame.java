@@ -64,7 +64,6 @@ public class MyGdxGame extends ApplicationAdapter {
         batch.draw(img, pos.x, pos.y, 100, 117);
         if (!drawText) {
             batch.draw(img, pos.x, pos.y, 150, 150);
-            batch.draw(img, pos.x, pos.y, 150, 150);
         } else {
             font.draw(batch, "Hello World!", 10, 10);
         }
