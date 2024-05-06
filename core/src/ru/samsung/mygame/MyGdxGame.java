@@ -7,6 +7,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -19,23 +26,25 @@ public class MyGdxGame extends ApplicationAdapter {
     Texture textMapTexture;
     Vector2 pos;
     OrthographicCamera camera;
-    private boolean drawText = true;
+    private boolean drawText = false;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        img = new Texture("theprince.png");
-        textMapTexture = new Texture("picture.png");
-        pos = new Vector2(0, 0);
+        img = new Texture("cupol.png");
+        textMapTexture = new Texture("close.png");
+        pos = new Vector2(0, 0); ///////////
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(-50, -50, 0);
+        camera.position.set(225, 225, 0);
         camera.update();
+
+
     }
 
     @Override
     public void render() {
-        ScreenUtils.clear(0, 0, 0, 1);
+        ScreenUtils.clear(15/255f, 19/255f, 74/255f, 1);
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
@@ -47,11 +56,12 @@ public class MyGdxGame extends ApplicationAdapter {
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(10f);
-            if (deltaPos.x + pos.x > 0 && deltaPos.x + pos.x < 900)
+            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(4f);
+            if (deltaPos.x + pos.x > -100 && deltaPos.x + pos.x < 270)// ограничение границ поля
                 pos.x += deltaPos.x;
-            if (deltaPos.y + pos.y > 0 && deltaPos.y + pos.y < 883)
+            if (deltaPos.y + pos.y > -100 && deltaPos.y + pos.y < 300)// ограничение границ поля
                 pos.y += deltaPos.y;
+
 
         }
 
@@ -60,12 +70,12 @@ public class MyGdxGame extends ApplicationAdapter {
         batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
-        batch.draw(textMapTexture, 0, 0, 1000, 1000);
-        batch.draw(img, pos.x, pos.y, 100, 117);
+
         if (!drawText) {
-            batch.draw(img, pos.x, pos.y, 150, 150);
+            batch.draw(textMapTexture, 0,0, 505, 550);
+            batch.draw(img, pos.x, pos.y, 450, 450);
         } else {
-            font.draw(batch, "Hello World!", 500, 500);
+            font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 1000, 1000);
         }
         batch.end();
     }
@@ -74,5 +84,6 @@ public class MyGdxGame extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
         img.dispose();
+        font.dispose();
     }
 }
