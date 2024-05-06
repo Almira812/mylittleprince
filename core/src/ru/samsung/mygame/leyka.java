@@ -34,13 +34,11 @@ public class leyka extends ApplicationAdapter {
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(225, 225, 0);
         camera.update();
-
-
     }
 
     @Override
     public void render() {
-        ScreenUtils.clear(15/255f, 19/255f, 74/255f, 1);
+        ScreenUtils.clear(15 / 255f, 19 / 255f, 74 / 255f, 1);
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
@@ -71,7 +69,7 @@ public class leyka extends ApplicationAdapter {
         batch.begin();
 
         if (!drawText) {
-            batch.draw(textMapTexture, 0,0, 505, 550);
+            batch.draw(textMapTexture, 0, 0, 505, 550);
             batch.draw(img, pos.x, pos.y, 450, 450);
         } else {
             font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 1000, 1000);
