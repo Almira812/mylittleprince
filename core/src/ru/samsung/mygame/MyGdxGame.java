@@ -22,11 +22,11 @@ public class MyGdxGame extends ApplicationAdapter {
     Vector2 pos;
     OrthographicCamera camera;
     private boolean drawText = true;
-    Texture walkSheet;
-    Animation<TextureRegion> walkAnimation;
-    float stateTime;
-    private static final int FRAME_COLS = 9, FRAME_ROWS = 1;//сколько столбцов, сколько строк
-    boolean isWalking;
+    Texture walkSheet;  // что-то с анимацией
+    Animation<TextureRegion> walkAnimation; // что-то с анимацией
+    float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
+    private static final int FRAME_COLS = 9, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    boolean isWalking; // что-то с анимацией
 
     @Override
     public void create() {
@@ -40,14 +40,12 @@ public class MyGdxGame extends ApplicationAdapter {
         camera.update();
 
 
-        walkSheet = new Texture(Gdx.files.internal("dvig prince atlas.png"));
+        walkSheet = new Texture(Gdx.files.internal("dvig prince atlas.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
-                walkSheet.getHeight() / FRAME_ROWS);
+                walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
 
-        // Place the regions into a 1D array in the correct order, starting from the top
-        // left, going across first. The Animation constructor requires a 1D array.
-        TextureRegion[] walkFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS];
+        TextureRegion[] walkFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS]; // соединяет части картинки с анимацией в одну строчку
         int index = 0;
         for (int i = 0; i < FRAME_ROWS; i++) {
             for (int j = 0; j < FRAME_COLS; j++) {
@@ -55,7 +53,7 @@ public class MyGdxGame extends ApplicationAdapter {
             }
         }
 
-        walkAnimation = new Animation<TextureRegion>(0.025f, walkFrames);
+        walkAnimation = new Animation<TextureRegion>(0.025f, walkFrames); // время между переходами в анимации
 
     }
 
@@ -63,7 +61,7 @@ public class MyGdxGame extends ApplicationAdapter {
     public void render() {
         ScreenUtils.clear(0, 0, 0, 1);
 
-        isWalking = false;
+        isWalking = false; // чтобы анимации просто так не работала
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
@@ -81,7 +79,7 @@ public class MyGdxGame extends ApplicationAdapter {
             if (deltaPos.y + pos.y > 0 && deltaPos.y + pos.y < 883)
                 pos.y += deltaPos.y;
 
-            isWalking = true;
+            isWalking = true; // при каких-то условиях включается анимация
         }
 
         camera.position.set(pos, 0);
@@ -90,18 +88,18 @@ public class MyGdxGame extends ApplicationAdapter {
 
         batch.begin();
         stateTime += Gdx.graphics.getDeltaTime();
-        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true);
+        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
 
         batch.draw(textMapTexture, 0, 0, 1000, 1000);
 
         if (isWalking)
-            batch.draw(currentFrame, pos.x, pos.y, 100, 117);
+            batch.draw(currentFrame, pos.x, pos.y, 100, 117); // если персонаж двигается, то включается анимация
         else
             batch.draw(img, pos.x, pos.y, 100, 117);
 //        if (!drawText) {
 //            batch.draw(currentFrame, pos.x, pos.y, 150, 150);
 //        } else {
-//            font.draw(batch, "Hello World!", 500, 500);
+//            font.draw(batch, "Hello World!", 500, 500); // текст появляется по середине
 //        }
 
 
