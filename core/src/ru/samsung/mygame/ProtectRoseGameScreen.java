@@ -19,28 +19,24 @@ public class ProtectRoseGameScreen implements Screen {
     Texture textMapTexture;
     Vector2 pos;
     OrthographicCamera camera;
-    private boolean drawText = false;
-
+    ///private boolean drawText = false;
     public ProtectRoseGameScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
-
     @Override
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("cupol.png");
         textMapTexture = new Texture("field.png");
-        pos = new Vector2(200, 250); /////////// координаты изначального колпака
+        pos = new Vector2(800, 750);                       /////////// координаты изначального колпака
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(225, 225, 0);
         camera.update();
     }
-
     @Override
     public void render(float delta) {
         ScreenUtils.clear(15 / 255f, 19 / 255f, 74 / 255f, 1);
-
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
             int y = Gdx.input.getY();
@@ -51,51 +47,39 @@ public class ProtectRoseGameScreen implements Screen {
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(4f);
-            if (deltaPos.x + pos.x > -100 && deltaPos.x + pos.x < 500)// ограничение границ поля
+            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(6f);
+            if (deltaPos.x + pos.x > -300 && deltaPos.x + pos.x < 1500)// ограничение границ поля
                 pos.x += deltaPos.x;
-            if (deltaPos.y + pos.y > -100 && deltaPos.y + pos.y < 300)// ограничение границ поля
+            if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
-            if (pos.x > 185 && pos.x < 215  ///проверка колпака
-                    && pos.y > 30 && pos.y < 60)
-                myGdxGame.setScreen(myGdxGame.mainMenuScreen);
+            if (pos.x > 745 && pos.x < 835  ///проверка колпака
+                    && pos.y > -60 && pos.y < 30)
+                myGdxGame.setScreen(myGdxGame.introduction);
         }
-
         batch.begin();
-        if (!drawText) {
-            batch.draw(textMapTexture, 20, 80, 600, 300);
-            batch.draw(img, pos.x, pos.y, 250, 280);
-        } else {
-            font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 100, 100);
-        }
+            batch.draw(textMapTexture, 220, 90, 1800, 900);
+            batch.draw(img, pos.x, pos.y, 750, 840);
+
+           /// font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 700, 700);
         batch.end();
     }
-
     @Override
     public void dispose() {
         batch.dispose();
         img.dispose();
         font.dispose();
     }
-
     @Override
     public void resize(int width, int height) {
-
     }
-
     @Override
     public void pause() {
-
     }
-
     @Override
     public void resume() {
-
     }
-
     @Override
     public void hide() {
-
     }
 }

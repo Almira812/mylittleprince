@@ -8,14 +8,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 
-public class MainMenuScreen implements Screen {
+public class IntroductionScreen implements Screen {
 
     MyGdxGame myGdxGame;
     SpriteBatch batch;
     BitmapFont font;
     Texture textMapTexture;
 
-    public MainMenuScreen(MyGdxGame myGdxGame) {
+    public IntroductionScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
 
@@ -23,17 +23,18 @@ public class MainMenuScreen implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        textMapTexture = new Texture("menu.png");
+        textMapTexture = new Texture("check.png");
     }
 
     @Override
     public void render(float delta) {
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
-        if (Gdx.input.isTouched()) {
-            myGdxGame.setScreen(myGdxGame.protectRoseGameScreen);
-        }
+     ///   if (Gdx.input.isTouched()) {
+       ////     myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
+        //}
+
         batch.begin();
-        batch.draw(textMapTexture, 50, 80, 2150, 950);
+        batch.draw(textMapTexture, 0, 0, 2500, 950);
         batch.end();
     }
 

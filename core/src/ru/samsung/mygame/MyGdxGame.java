@@ -27,11 +27,14 @@ public class MyGdxGame extends Game {
     public ProtectRoseGameScreen protectRoseGameScreen;
     public DrinkRoseGameScreen drinkRoseGameScreen;
 
+    public IntroductionScreen introduction;
+
     @Override
     public void create() {
         mainMenuScreen = new MainMenuScreen(this);
         protectRoseGameScreen = new ProtectRoseGameScreen(this);
         drinkRoseGameScreen = new DrinkRoseGameScreen(this);
+        introduction = new IntroductionScreen(this);
 
         setScreen(mainMenuScreen);
     }

@@ -29,7 +29,7 @@ public class DrinkRoseGameScreen implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("лейка.png");
-        textMapTexture = new Texture("field.png");
+        textMapTexture = new Texture("росток.png");
         pos = new Vector2(0, 0); ///////////
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(225, 225, 0);
