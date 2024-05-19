@@ -28,7 +28,7 @@ public class DrinkRoseGameScreen implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        img = new Texture("лейка.png");
+        //// img = new Texture("лейка.png");
         textMapTexture = new Texture("росток.png");
         pos = new Vector2(0, 0); ///////////
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -50,26 +50,24 @@ public class DrinkRoseGameScreen implements Screen {
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(4f);
-            if (deltaPos.x + pos.x > -100 && deltaPos.x + pos.x < 400)// ограничение границ поля
+            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(6f);
+            if (deltaPos.x + pos.x > -300 && deltaPos.x + pos.x < 1500)// ограничение границ поля
                 pos.x += deltaPos.x;
-            if (deltaPos.y + pos.y > -100 && deltaPos.y + pos.y < 300)// ограничение границ поля
+            if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
-            if (pos.x > 100 && pos.x < 120
-                    && pos.y > -75 && pos.y < -65)
-                myGdxGame.setScreen(myGdxGame.mainMenuScreen);
+            if (pos.x > 745 && pos.x < 835  ///проверка колпака
+                    && pos.y > -60 && pos.y < 30)
+                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
+        }
+        batch.begin();
+        batch.draw(textMapTexture, 220, 90, 1800, 900);
+        batch.draw(img, pos.x, pos.y, 350, 440);
+
+        /// font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 700, 700);
+        batch.end();
         }
 
-        batch.begin();
-        if (!drawText) {
-            batch.draw(textMapTexture, 20, 80, 600, 300);
-            batch.draw(img, pos.x, pos.y, 50, 80); ///размеры лейки
-        } else {
-            font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 100, 100);
-        }
-        batch.end();
-    }
 
     @Override
     public void dispose() {

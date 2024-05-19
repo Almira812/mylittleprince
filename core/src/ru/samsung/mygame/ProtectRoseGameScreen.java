@@ -55,7 +55,7 @@ public class ProtectRoseGameScreen implements Screen {
 
             if (pos.x > 745 && pos.x < 835  ///проверка колпака
                     && pos.y > -60 && pos.y < 30)
-                myGdxGame.setScreen(myGdxGame.introduction);
+                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
         }
         batch.begin();
             batch.draw(textMapTexture, 220, 90, 1800, 900);

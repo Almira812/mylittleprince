@@ -30,7 +30,7 @@ public class MainMenuScreen implements Screen {
     public void render(float delta) {
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
         if (Gdx.input.isTouched()) {
-            myGdxGame.setScreen(myGdxGame.protectRoseGameScreen);
+            myGdxGame.setScreen(myGdxGame.introduction);
         }
         batch.begin();
         batch.draw(textMapTexture, 50, 80, 2150, 950);
