@@ -32,12 +32,12 @@ public class MyGdxGame extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        img = new Texture("theprince.png");
-        textMapTexture = new Texture("picture.png");
+        img = new Texture("dvig prince all1.png");
+        textMapTexture = new Texture("planet1.png");
         pos = new Vector2(0, 0);
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(-50, -50, 0);
-        camera.update();
+        //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //camera.position.set(-50, -50, 0);
+        //camera.update();
 
 
         walkSheet = new Texture(Gdx.files.internal("dvig prince atlas.png")); // находит картинку с анимацией
@@ -53,49 +53,49 @@ public class MyGdxGame extends ApplicationAdapter {
             }
         }
 
-        walkAnimation = new Animation<TextureRegion>(0.025f, walkFrames); // время между переходами в анимации
+        walkAnimation = new Animation<TextureRegion>(0.05f, walkFrames); // время между переходами в анимации
 
     }
 
     @Override
     public void render() {
-        ScreenUtils.clear(0, 0, 0, 1);
+        ScreenUtils.clear(15 / 255f, 19 / 255f, 74 / 255f, 1);
 
         isWalking = false; // чтобы анимации просто так не работала
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
-            int y = Gdx.input.getY();
+            int y = Gdx.graphics.getHeight() - Gdx.input.getY();
 
             Vector3 worldPos = new Vector3(x, y, 0);
-            camera.unproject(worldPos);
+            //camera.unproject(worldPos);
 
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(10f);
-            if (deltaPos.x + pos.x > 0 && deltaPos.x + pos.x < 900)
+            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(8f); // скорость хождения принца
+            if (deltaPos.x + pos.x > -200 && deltaPos.x + pos.x < 2180)
                 pos.x += deltaPos.x;
-            if (deltaPos.y + pos.y > 0 && deltaPos.y + pos.y < 883)
+            if (deltaPos.y + pos.y > -250 && deltaPos.y + pos.y < 400)
                 pos.y += deltaPos.y;
 
             isWalking = true; // при каких-то условиях включается анимация
         }
 
-        camera.position.set(pos, 0);
-        camera.update();
-        batch.setProjectionMatrix(camera.combined);
+        //camera.position.set(pos, 0);
+        //camera.update();
+        //batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
-        stateTime += Gdx.graphics.getDeltaTime();
+        stateTime += Gdx.graphics.getDeltaTime(); // что с анимацией
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
 
-        batch.draw(textMapTexture, 0, 0, 1000, 1000);
+        batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
 
         if (isWalking)
-            batch.draw(currentFrame, pos.x, pos.y, 100, 117); // если персонаж двигается, то включается анимация
+            batch.draw(currentFrame, pos.x, pos.y, 512, 512); // если персонаж двигается, то включается анимация /750,840 / 100,117
         else
-            batch.draw(img, pos.x, pos.y, 100, 117);
+            batch.draw(img, pos.x, pos.y, 512, 512);
 //        if (!drawText) {
 //            batch.draw(currentFrame, pos.x, pos.y, 150, 150);
 //        } else {
