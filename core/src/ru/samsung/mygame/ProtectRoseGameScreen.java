@@ -10,6 +10,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
 
 public class ProtectRoseGameScreen implements Screen {
     MyGdxGame myGdxGame;
@@ -18,6 +22,7 @@ public class ProtectRoseGameScreen implements Screen {
     Texture img;
     Texture textMapTexture;
     Vector2 pos;
+    Timer timer;
     OrthographicCamera camera;
     ///private boolean drawText = false;
     public ProtectRoseGameScreen(MyGdxGame myGdxGame) {
@@ -25,6 +30,7 @@ public class ProtectRoseGameScreen implements Screen {
     }
     @Override
     public void show() {
+        Timer timer = new Timer();
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("cupol.png");
@@ -53,16 +59,17 @@ public class ProtectRoseGameScreen implements Screen {
             if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
-            if (pos.x > 745 && pos.x < 835  ///проверка колпака
-                    && pos.y > -60 && pos.y < 30)
-                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
+            //if (pos.x > 745 && pos.x < 835  ///проверка колпака
+            //        && pos.y > -60 && pos.y < 30)
+                ///timer.schedule(new Tim, 3000);
         }
         batch.begin();
             batch.draw(textMapTexture, 220, 90, 1800, 900);
-            batch.draw(img, pos.x, pos.y, 750, 840);
+            batch.draw(img, pos.x, pos.y, 750, 840); ///размеры колпака
 
            /// font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 700, 700);
         batch.end();
+
     }
     @Override
     public void dispose() {

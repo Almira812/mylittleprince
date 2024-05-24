@@ -1,24 +1,7 @@
 package ru.samsung.mygame;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.ScreenUtils;
+import ru.samsung.mygame.inScreens.*;
 
 public class MyGdxGame extends Game {
 
@@ -37,7 +20,8 @@ public class MyGdxGame extends Game {
     public in8 int8;
     public in9 int9;
     public in10 int10;
-
+    public in11 int11;
+    public in12 int12;
     @Override
     public void create() {
         mainMenuScreen = new MainMenuScreen(this);
@@ -54,6 +38,8 @@ public class MyGdxGame extends Game {
         int8 = new in8(this);
         int9 = new in9(this);
         int10 = new in10(this);
+        int11 = new in11(this);
+        int12 = new in12(this);
         setScreen(mainMenuScreen);
     }
 }

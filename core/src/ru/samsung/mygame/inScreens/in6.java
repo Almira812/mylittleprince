@@ -1,4 +1,4 @@
-package ru.samsung.mygame;
+package ru.samsung.mygame.inScreens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -8,9 +8,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
+import ru.samsung.mygame.MyGdxGame;
 
 
-public class in7 implements Screen {
+public class in6 implements Screen {
 
     MyGdxGame myGdxGame;
     SpriteBatch batch;
@@ -19,11 +20,11 @@ public class in7 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 17, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 11, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
 
 
-    public in7(MyGdxGame myGdxGame) {
+    public in6(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
 
@@ -32,7 +33,7 @@ public class in7 implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         //textMapTexture = new Texture("ch2.png");
-        walkSheet = new Texture(Gdx.files.internal("next.8.17.png")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("sleep.7.11.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
@@ -54,12 +55,11 @@ public class in7 implements Screen {
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
             int y = Gdx.input.getY();
-            isWalking = false; // при каких-то условиях включается анимация можно изменить
-            myGdxGame.setScreen(myGdxGame.int8);
+            isWalking = true; // при каких-то условиях включается анимация можно изменить
+            myGdxGame.setScreen(myGdxGame.int7);
         }
 
         batch.begin();
-
         if (stateTime < (FRAME_COLS * FRAME_ROWS) * 0.05f) {
             stateTime += delta;
         } else {
@@ -67,8 +67,7 @@ public class in7 implements Screen {
         }
 
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
-        batch.draw(currentFrame, 50, 80, 2150, 950); // если персонаж двигается, то включается анимация
-
+        batch.draw(currentFrame,50,  80, 2150, 950); // если персонаж двигается, то включается анимация
         batch.end();
     }
 
