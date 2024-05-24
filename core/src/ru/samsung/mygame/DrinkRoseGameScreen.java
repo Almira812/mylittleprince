@@ -1,6 +1,5 @@
 package ru.samsung.mygame;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import ru.samsung.mygame.in2;
 
 public class DrinkRoseGameScreen implements Screen {
     MyGdxGame myGdxGame;
@@ -28,7 +28,7 @@ public class DrinkRoseGameScreen implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        //// img = new Texture("лейка.png");
+        img = new Texture("cupol.png");
         textMapTexture = new Texture("росток.png");
         pos = new Vector2(0, 0); ///////////
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

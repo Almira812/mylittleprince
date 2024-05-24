@@ -1,4 +1,4 @@
-package ru.samsung.mygame.inScreens;
+package ru.samsung.mygame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import ru.samsung.mygame.MyGdxGame;
 
 
-public class in2 implements Screen {
+public class in10 implements Screen {
 
     MyGdxGame myGdxGame;
     SpriteBatch batch;
@@ -20,11 +20,11 @@ public class in2 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 49, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 4, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
+    boolean isPressedOnStart;
 
-
-    public in2(MyGdxGame myGdxGame) {
+    public in10(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
 
@@ -33,7 +33,7 @@ public class in2 implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         //textMapTexture = new Texture("ch2.png");
-        walkSheet = new Texture(Gdx.files.internal("intr2.png")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("frost3.10.4")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
@@ -45,7 +45,7 @@ public class in2 implements Screen {
             }
         }
         walkAnimation = new Animation<TextureRegion>(0.05f, walkFrames); // время между переходами в анимации
-
+        isPressedOnStart = Gdx.input.isTouched();
     }
 
     @Override
@@ -53,10 +53,14 @@ public class in2 implements Screen {
         isWalking = true; // чтобы анимации просто так не работала
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
         if (Gdx.input.isTouched()) {
-            int x = Gdx.input.getX();
-            int y = Gdx.input.getY();
-            isWalking = false; // при каких-то условиях включается анимация можно изменить
-            myGdxGame.setScreen(myGdxGame.int3);
+            if (!isPressedOnStart) {
+                int x = Gdx.input.getX();
+                int y = Gdx.input.getY();
+                isWalking = false; // при каких-то условиях включается анимация можно изменить
+                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
+            }
+        } else {
+            isPressedOnStart = false;
         }
 
         batch.begin();

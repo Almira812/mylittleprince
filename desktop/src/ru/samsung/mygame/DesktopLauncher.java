@@ -2,7 +2,7 @@ package ru.samsung.mygame;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import ru.samsung.mygame.MyGdxGame;
+import ru.samsung.mygame.in2;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {

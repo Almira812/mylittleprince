@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import ru.samsung.mygame.MyGdxGame;
+import ru.samsung.mygame.in2;
 
 public class HtmlLauncher extends GwtApplication {
 
