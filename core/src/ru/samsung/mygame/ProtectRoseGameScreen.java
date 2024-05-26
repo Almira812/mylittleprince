@@ -17,7 +17,7 @@ public class ProtectRoseGameScreen implements Screen {
     Texture img;
     Texture textMapTexture;
     Vector2 pos;
-    OrthographicCamera camera;
+    OrthographicCamera camera;  // импортируем шнягу
 
     public ProtectRoseGameScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -26,12 +26,12 @@ public class ProtectRoseGameScreen implements Screen {
     @Override
     public void show() {
         batch = new SpriteBatch();
-        font = new BitmapFont();
-        img = new Texture("cupol.png");
-        textMapTexture = new Texture("field.png");
-        pos = new Vector2(820, 440); ///////////
+        font = new BitmapFont();   // запускаем эти методы для отрисовки
+        img = new Texture("cupol.png");   // создаем переменную для купола для розы
+        textMapTexture = new Texture("field.png");  // создаем переменную для фона
+        pos = new Vector2(820, 440); //начальные координаты купола
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(225, 225, 0);
+        camera.position.set(225, 225, 0);  // зафиксированная позиция камеры
         camera.update();
 
     }
@@ -56,14 +56,15 @@ public class ProtectRoseGameScreen implements Screen {
             if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
-            if (pos.x > 700 && pos.x < 800  ///проверка колпака
+            if (pos.x > 700 && pos.x < 800  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > -50 && pos.y < 50)
-                myGdxGame.setScreen(myGdxGame.int25);
+                myGdxGame.setScreen(myGdxGame.int25); // он переводит игрока на следующий экран
 
         }
         batch.begin();
-        batch.draw(textMapTexture, 220, 90, 1800, 900);
-        batch.draw(img, pos.x, pos.y, 700, 800); //размеры купола
+        batch.draw(textMapTexture, 220, 90, 1800, 900); // отрисовываем фон. Тут соответственно
+        //начальные координаты и размеры
+        batch.draw(img, pos.x, pos.y, 700, 800); //отрисовываем купол
 
         batch.end();
     }
