@@ -71,7 +71,7 @@ public class in2 implements Screen {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f;
         } /// как я понимаю, рассчитывание времени для анимации
 
-        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
+        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
         batch.draw(currentFrame, 50, 80, 2150, 950); // если персонаж двигается, то включается анимация
 
         batch.end(); // конец отрисовки

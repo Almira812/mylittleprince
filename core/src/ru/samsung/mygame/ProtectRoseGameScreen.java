@@ -56,7 +56,7 @@ public class ProtectRoseGameScreen implements Screen {
             if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
-            if (pos.x > 700 && pos.x < 800  ///проверка колпака. Если колпак покрывает розу, то
+            if (pos.x > 710 && pos.x < 810  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > -50 && pos.y < 50)
                 myGdxGame.setScreen(myGdxGame.int25); // он переводит игрока на следующий экран
 
