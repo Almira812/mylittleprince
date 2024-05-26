@@ -57,7 +57,7 @@ public class CleanPlanetScreen implements Screen {
 
             if (pos.x > 745 && pos.x < 835  ///проверка колпака
                     && pos.y > -60 && pos.y < 30)
-                myGdxGame.setScreen(myGdxGame.int6);
+                myGdxGame.setScreen(myGdxGame.FirstDayNight);
         }
         batch.begin();
         batch.draw(textMapTexture, 220, 90, 1800, 900);

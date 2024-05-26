@@ -54,7 +54,7 @@ public class in5 implements Screen {
         if (Gdx.input.isTouched()) {
             if (!isPressedOnStart) {
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
-                myGdxGame.setScreen(myGdxGame.cleanPlanetScreen);
+                myGdxGame.setScreen(myGdxGame.FirstDaySun);
             }
         } else {
             isPressedOnStart = false;

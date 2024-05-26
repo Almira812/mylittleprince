@@ -1,6 +1,8 @@
 package ru.samsung.mygame;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Screen;
+
 import ru.samsung.mygame.in2;
 
 public class MyGdxGame extends Game {
@@ -48,6 +50,9 @@ public class MyGdxGame extends Game {
     public in36 int36;
     public in37 int37;
     public in38 int38;
+    public FirstDaySun FirstDaySun;
+    public FirstDayNight FirstDayNight;
+
     @Override
 
     public void create() {
@@ -97,6 +102,8 @@ public class MyGdxGame extends Game {
         int37 = new in37(this);
         int38 = new in38(this);
 
+        FirstDaySun = new FirstDaySun(this);
+        FirstDayNight = new FirstDayNight(this);
         setScreen(mainMenuScreen);
     }
 }

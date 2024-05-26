@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class FirstDaySun implements Screen {
+public class FirstDayNight implements Screen {
     MyGdxGame myGdxGame;
     SpriteBatch batch;
     BitmapFont font;
@@ -27,9 +27,10 @@ public class FirstDaySun implements Screen {
     private static final int FRAME_COLS = 9, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
 
-    public FirstDaySun(MyGdxGame myGdxGame) {
+    public FirstDayNight(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
+
 
 
     @Override
@@ -38,7 +39,7 @@ public class FirstDaySun implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("dvig prince all1.png");
-        textMapTexture = new Texture("firstdaysun.png");
+        textMapTexture = new Texture("firstdaynight.png");
         pos = new Vector2(0, 0);
         //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //camera.position.set(-50, -50, 0);
@@ -88,7 +89,7 @@ public class FirstDaySun implements Screen {
 
             if (pos.x > 900 && pos.x < 1200  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > 30 && pos.y < 250)
-                myGdxGame.setScreen(myGdxGame.cleanPlanetScreen); // он переводит игрока на следующий экран (на игру вулканоооо)
+                myGdxGame.setScreen(myGdxGame.int6); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }
