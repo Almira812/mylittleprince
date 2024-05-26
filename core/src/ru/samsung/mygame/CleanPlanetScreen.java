@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
-import ru.samsung.mygame.in2;
 
 public class CleanPlanetScreen implements Screen {
     MyGdxGame myGdxGame;
@@ -64,7 +63,6 @@ public class CleanPlanetScreen implements Screen {
         batch.draw(textMapTexture, 220, 90, 1800, 900);
         batch.draw(img, pos.x, pos.y, 350, 440);
 
-        /// font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 700, 700);
         batch.end();
     }
 

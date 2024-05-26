@@ -17,9 +17,7 @@ public class ProtectRoseGameScreen implements Screen {
     Texture img;
     Texture textMapTexture;
     Vector2 pos;
-    OrthographicCamera camera;
-    private boolean drawText = false;
-    boolean isPressedOnStart;
+    OrthographicCamera camera;  // импортируем шнягу
 
     public ProtectRoseGameScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -28,12 +26,12 @@ public class ProtectRoseGameScreen implements Screen {
     @Override
     public void show() {
         batch = new SpriteBatch();
-        font = new BitmapFont();
-        //// img = new Texture("лейка.png");
-        textMapTexture = new Texture("field.png");
-        pos = new Vector2(0, 0); ///////////
+        font = new BitmapFont();   // запускаем эти методы для отрисовки
+        img = new Texture("cupol.png");   // создаем переменную для купола для розы
+        textMapTexture = new Texture("field.png");  // создаем переменную для фона
+        pos = new Vector2(820, 440); //начальные координаты купола
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(225, 225, 0);
+        camera.position.set(225, 225, 0);  // зафиксированная позиция камеры
         camera.update();
 
     }
@@ -52,19 +50,22 @@ public class ProtectRoseGameScreen implements Screen {
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(6f);
+            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(4f);
             if (deltaPos.x + pos.x > -300 && deltaPos.x + pos.x < 1500)// ограничение границ поля
                 pos.x += deltaPos.x;
             if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
+            if (pos.x > 710 && pos.x < 810  ///проверка колпака. Если колпак покрывает розу, то
+                    && pos.y > -50 && pos.y < 50)
+                myGdxGame.setScreen(myGdxGame.int25); // он переводит игрока на следующий экран
 
         }
         batch.begin();
-        batch.draw(textMapTexture, 220, 90, 1800, 900);
-        batch.draw(img, pos.x, pos.y, 350, 440);
+        batch.draw(textMapTexture, 220, 90, 1800, 900); // отрисовываем фон. Тут соответственно
+        //начальные координаты и размеры
+        batch.draw(img, pos.x, pos.y, 700, 800); //отрисовываем купол
 
-        /// font.draw(batch, "укрой розу от ветра, накрыв ее куполом", 700, 700);
         batch.end();
     }
 

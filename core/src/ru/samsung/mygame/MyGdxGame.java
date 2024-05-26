@@ -7,7 +7,6 @@ public class MyGdxGame extends Game {
     public MainMenuScreen mainMenuScreen;
     public ProtectRoseGameScreen protectRoseGameScreen;
     public DrinkRoseGameScreen drinkRoseGameScreen;
-    ///public MainMenuScreen planetgame;
     public IntroductionScreen introduction;
     public CleanPlanetScreen cleanPlanetScreen;
     public in2 int2;
@@ -27,6 +26,28 @@ public class MyGdxGame extends Game {
     public in16 int16;
     public in17 int17;
     public in18 int18;
+    public in19 int19;
+    public in20 int20;
+    public in21 int21;
+    public in22 int22;
+    public in23 int23;
+    public in24 int24;
+
+    public in25 int25;
+    public in26 int26;
+    public in27 int27;
+    public in28 int28;
+    public in29 int29;
+    public in30 int30;
+
+    public in31 int31;
+    public in32 int32;
+    public in33 int33;
+    public in34 int34;
+    public in35 int35;
+    public in36 int36;
+    public in37 int37;
+    public in38 int38;
     @Override
 
     public void create() {
@@ -52,6 +73,30 @@ public class MyGdxGame extends Game {
         int16 = new in16(this);
         int17 = new in17(this);
         int18 = new in18(this);
+        int19 = new in19(this);
+        int20 = new in20(this);
+        int21 = new in21(this);
+        int22 = new in22(this);
+        int23 = new in23(this);
+        int24 = new in24(this);
+
+        int25 = new in25(this);
+        int26 = new in26(this);
+        int27 = new in27(this);
+        int28 = new in28(this);
+        int29 = new in29(this);
+        int30 = new in30(this);
+
+        int31 = new in31(this);
+        int32 = new in32(this);
+        int33 = new in33(this);
+        int34 = new in34(this);
+
+        int35 = new in35(this);
+        int36 = new in36(this);
+        int37 = new in37(this);
+        int38 = new in38(this);
+
         setScreen(mainMenuScreen);
     }
 }

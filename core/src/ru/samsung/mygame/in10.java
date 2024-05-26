@@ -32,8 +32,7 @@ public class in10 implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        //textMapTexture = new Texture("ch2.png");
-        walkSheet = new Texture(Gdx.files.internal("frost3.10.4")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("frost3.10.4.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
@@ -54,8 +53,6 @@ public class in10 implements Screen {
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
         if (Gdx.input.isTouched()) {
             if (!isPressedOnStart) {
-                int x = Gdx.input.getX();
-                int y = Gdx.input.getY();
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
                 myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
             }
@@ -71,7 +68,7 @@ public class in10 implements Screen {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f ;
         }
 
-        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
+        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
         batch.draw(currentFrame, 50, 80, 2150, 950); // если персонаж двигается, то включается анимация
 
         batch.end();

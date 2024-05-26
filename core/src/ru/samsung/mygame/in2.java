@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+// каждый такой экран также нужно вбить в класс MyGdxGame. Там все однотипно и понятно
+
 
 public class in2 implements Screen {
 
@@ -21,7 +23,7 @@ public class in2 implements Screen {
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
     private static final int FRAME_COLS = 49, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
-    boolean isPressedOnStart;
+    boolean isPressedOnStart; /// импорт всех библиотек
 
 
     public in2(MyGdxGame myGdxGame) {
@@ -32,7 +34,6 @@ public class in2 implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        //textMapTexture = new Texture("ch2.png");
         walkSheet = new Texture(Gdx.files.internal("intr2.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
@@ -46,7 +47,7 @@ public class in2 implements Screen {
         }
         walkAnimation = new Animation<TextureRegion>(0.05f, walkFrames); // время между переходами в анимации
 
-        isPressedOnStart = Gdx.input.isTouched();
+        isPressedOnStart = Gdx.input.isTouched(); /// конструкция, считывающая касания к экрану
     }
 
     @Override
@@ -54,28 +55,26 @@ public class in2 implements Screen {
         isWalking = true; // чтобы анимации просто так не работала
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
         if (Gdx.input.isTouched()) {
-            if (!isPressedOnStart) {
-                int x = Gdx.input.getX();
-                int y = Gdx.input.getY();
+            if (!isPressedOnStart) { // проверка условия прикосновения к экрану
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
-                myGdxGame.setScreen(myGdxGame.int3);
+                myGdxGame.setScreen(myGdxGame.int3); /// перекидывает да следующий экран
             }
         } else {
             isPressedOnStart = false;
         }
 
-        batch.begin();
+        batch.begin(); // начало отрисовки
 
         if (stateTime < (FRAME_COLS * FRAME_ROWS) * 0.05f) {
             stateTime += delta;
         } else {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f;
-        }
+        } /// как я понимаю, рассчитывание времени для анимации
 
-        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
+        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
         batch.draw(currentFrame, 50, 80, 2150, 950); // если персонаж двигается, то включается анимация
 
-        batch.end();
+        batch.end(); // конец отрисовки
     }
 
     @Override

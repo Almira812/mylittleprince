@@ -19,7 +19,7 @@ public class in17 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 16, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 10, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
 
@@ -32,7 +32,7 @@ public class in17 implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         //textMapTexture = new Texture("ch2.png");
-        walkSheet = new Texture(Gdx.files.internal("pr.15.16.png")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("r.17.10.png")); // находит картинку с анимацией с солнцем
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
@@ -70,7 +70,7 @@ public class in17 implements Screen {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f ;
         }
 
-        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
+        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
         batch.draw(currentFrame, 50, 80, 2150, 950); // если персонаж двигается, то включается анимация
 
         batch.end();
