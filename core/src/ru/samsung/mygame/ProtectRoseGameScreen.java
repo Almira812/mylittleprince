@@ -58,7 +58,7 @@ public class ProtectRoseGameScreen implements Screen {
 
             if (pos.x > 710 && pos.x < 810  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > -50 && pos.y < 50)
-                myGdxGame.setScreen(myGdxGame.int25); // он переводит игрока на следующий экран
+                myGdxGame.setScreen(myGdxGame.ThirdDayNight); // он переводит игрока на следующий экран
 
         }
         batch.begin();

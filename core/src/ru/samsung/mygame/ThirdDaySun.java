@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class SecondDaySun implements Screen {
+public class ThirdDaySun implements Screen {
     MyGdxGame myGdxGame;
     SpriteBatch batch;
     BitmapFont font;
@@ -27,7 +27,7 @@ public class SecondDaySun implements Screen {
     private static final int FRAME_COLS = 9, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
 
-    public SecondDaySun(MyGdxGame myGdxGame) {
+    public ThirdDaySun(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
 
@@ -38,7 +38,7 @@ public class SecondDaySun implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("dvig prince all1.png");
-        textMapTexture = new Texture("seconddaysun.png");
+        textMapTexture = new Texture("thirddaysun.png");
         pos = new Vector2(0, 0);
         //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //camera.position.set(-50, -50, 0);
@@ -88,7 +88,7 @@ public class SecondDaySun implements Screen {
 
             if (pos.x > 1200 && pos.x < 1500  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > 330 && pos.y < 550)
-                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen); // он переводит игрока на следующий экран (на игру вулканоооо)
+                myGdxGame.setScreen(myGdxGame.protectRoseGameScreen); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }

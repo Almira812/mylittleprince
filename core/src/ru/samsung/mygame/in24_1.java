@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 
-public class in24 implements Screen {
+public class in24_1 implements Screen {
 
     MyGdxGame myGdxGame;
     SpriteBatch batch;
@@ -18,11 +18,11 @@ public class in24 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 41, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 17, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
 
-    public in24(MyGdxGame myGdxGame) {
+    public in24_1(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
 
@@ -30,7 +30,7 @@ public class in24 implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        walkSheet = new Texture(Gdx.files.internal("p.24.41.png")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("next.8.17.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
@@ -52,7 +52,7 @@ public class in24 implements Screen {
         if (Gdx.input.isTouched()) {
             if (!isPressedOnStart) {
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
-                myGdxGame.setScreen(myGdxGame.ThirdDaySun);
+                myGdxGame.setScreen(myGdxGame.int25);
             }
         } else {
             isPressedOnStart = false;
