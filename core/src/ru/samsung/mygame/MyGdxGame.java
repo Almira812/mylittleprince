@@ -52,6 +52,8 @@ public class MyGdxGame extends Game {
     public in38 int38;
     public FirstDaySun FirstDaySun;
     public FirstDayNight FirstDayNight;
+    public SecondDaySun SecondDaySun;
+    public SecondDayNight SecondDayNight;
 
     @Override
 
@@ -104,6 +106,9 @@ public class MyGdxGame extends Game {
 
         FirstDaySun = new FirstDaySun(this);
         FirstDayNight = new FirstDayNight(this);
+        SecondDaySun = new SecondDaySun(this);
+        SecondDayNight = new SecondDayNight(this);
+
         setScreen(mainMenuScreen);
     }
 }

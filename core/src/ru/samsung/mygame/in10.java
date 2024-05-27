@@ -54,7 +54,7 @@ public class in10 implements Screen {
         if (Gdx.input.isTouched()) {
             if (!isPressedOnStart) {
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
-                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
+                myGdxGame.setScreen(myGdxGame.SecondDaySun);
             }
         } else {
             isPressedOnStart = false;

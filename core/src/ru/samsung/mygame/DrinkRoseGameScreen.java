@@ -58,7 +58,7 @@ public class DrinkRoseGameScreen implements Screen {
 
             if (pos.x > 700 && pos.x < 800  ///проверка колпака
                     && pos.y > -50 && pos.y < 50)
-                myGdxGame.setScreen(myGdxGame.int11);
+                myGdxGame.setScreen(myGdxGame.SecondDayNight);
 
         }
         batch.begin();
