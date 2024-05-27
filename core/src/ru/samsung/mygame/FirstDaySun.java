@@ -88,7 +88,7 @@ public class FirstDaySun implements Screen {
 
             if (pos.x > 900 && pos.x < 1200  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > 30 && pos.y < 250)
-                myGdxGame.setScreen(myGdxGame.cleanPlanetScreen); // он переводит игрока на следующий экран (на игру вулканоооо)
+                myGdxGame.setScreen(myGdxGame.volcanooo1); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }

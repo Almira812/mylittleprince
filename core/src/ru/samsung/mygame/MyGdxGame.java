@@ -11,6 +11,13 @@ public class MyGdxGame extends Game {
     public DrinkRoseGameScreen drinkRoseGameScreen;
     public IntroductionScreen introduction;
     public CleanPlanetScreen cleanPlanetScreen;
+
+    public volcanooo1 volcanooo1;
+    public volcanooo2 volcanooo2;
+    public volcanooo3 volcanooo3;
+    public volcanooo4 volcanooo4;
+
+
     public in2 int2;
     public in3 int3;
     public in4 int4;
@@ -60,6 +67,7 @@ public class MyGdxGame extends Game {
     public sunset sunset;
     public Tobecontinued Tobecontinued;
 
+
     @Override
 
     public void create() {
@@ -68,6 +76,12 @@ public class MyGdxGame extends Game {
         drinkRoseGameScreen = new DrinkRoseGameScreen(this);
         introduction = new IntroductionScreen(this);
         cleanPlanetScreen = new CleanPlanetScreen(this);
+
+        volcanooo1 = new volcanooo1(this);
+        volcanooo2  = new volcanooo2(this);
+        volcanooo3 = new volcanooo3(this);
+        volcanooo4 = new volcanooo4(this);
+
         int2 = new in2(this);
         int3 = new in3(this);
         int4 = new in4(this);
