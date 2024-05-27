@@ -57,6 +57,8 @@ public class MyGdxGame extends Game {
     public SecondDayNight SecondDayNight;
     public ThirdDaySun ThirdDaySun;
     public ThirdDayNight ThirdDayNight;
+    public sunset sunset;
+    public Tobecontinued Tobecontinued;
 
     @Override
 
@@ -114,6 +116,9 @@ public class MyGdxGame extends Game {
         SecondDayNight = new SecondDayNight(this);
         ThirdDaySun = new ThirdDaySun(this);
         ThirdDayNight = new ThirdDayNight(this);
+        sunset = new sunset(this);
+
+        Tobecontinued = new Tobecontinued(this);
 
         setScreen(mainMenuScreen);
     }

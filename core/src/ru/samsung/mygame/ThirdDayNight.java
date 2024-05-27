@@ -39,7 +39,7 @@ public class ThirdDayNight implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("dvig prince all1.png");
-        textMapTexture = new Texture("thirddaynight.png");
+        textMapTexture = new Texture("thirddaynight1.png");
         pos = new Vector2(0, 0);
         //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //camera.position.set(-50, -50, 0);
@@ -87,8 +87,8 @@ public class ThirdDayNight implements Screen {
 
             isWalking = true; // при каких-то условиях включается анимация
 
-            if (pos.x > 900 && pos.x < 1200  ///проверка колпака. Если колпак покрывает розу, то
-                    && pos.y > 30 && pos.y < 250)
+            if (pos.x > 1480 && pos.x < 1780  ///проверка колпака. Если колпак покрывает розу, то
+                    && pos.y > 0 && pos.y < 550)
                 myGdxGame.setScreen(myGdxGame.in24_1); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
