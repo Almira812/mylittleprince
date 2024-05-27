@@ -38,7 +38,7 @@ public class sunset implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("dvig prince all1.png");
-        textMapTexture = new Texture("sunset.png");
+        textMapTexture = new Texture("sunset1.png");
         pos = new Vector2(0, 0);
         //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //camera.position.set(-50, -50, 0);
