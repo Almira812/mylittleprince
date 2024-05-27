@@ -39,7 +39,7 @@ public class SecondDayNight implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("dvig prince all1.png");
-        textMapTexture = new Texture("firstdaynight.png");
+        textMapTexture = new Texture("seconddaynight.png");
         pos = new Vector2(0, 0);
         //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //camera.position.set(-50, -50, 0);
