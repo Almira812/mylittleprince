@@ -65,7 +65,7 @@ public class IntroductionScreen implements Screen {
                 int y = Gdx.input.getY();
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
 
-                myGdxGame.setScreen(myGdxGame.int2);
+                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen);
             }
         } else {
             isPressedOnStart = false;
