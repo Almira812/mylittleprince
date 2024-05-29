@@ -34,7 +34,7 @@ public class volcanooo4 implements Screen {
         if (Gdx.input.getX() > 890 && Gdx.input.getX() < 1200  /// первая кнопка лейка
                 && Gdx.input.getY() > 400 && Gdx.input.getY() < 600){
             myGdxGame.setScreen(myGdxGame.FirstDayNight);
-        }//доп
+        }
         batch.begin();
         batch.draw(textMapTexture, 50, 80, 2150, 950);
         batch.end();

@@ -49,14 +49,6 @@ public class Tobecontinued implements Screen {
     public void render(float delta) {
         isWalking = true; // чтобы анимации просто так не работала
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
-        if (Gdx.input.isTouched()) {
-            if (!isPressedOnStart) {
-                isWalking = false; // при каких-то условиях включается анимация можно изменить
-                myGdxGame.setScreen(myGdxGame.introduction);
-            }
-        } else {
-            isPressedOnStart = false;
-        }
 
         batch.begin();
 
