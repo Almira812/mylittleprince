@@ -31,13 +31,10 @@ public class volcanooo4 implements Screen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
-        if (Gdx.input.isTouched()) {
-            if (!isPressedOnStart) { // проверка условия прикосновения к экран
-                myGdxGame.setScreen(myGdxGame.FirstDayNight); /// перекидывает да следующий экран
-            }
-        } else {
-            isPressedOnStart = false;
-        }//доп
+        if (Gdx.input.getX() > 890 && Gdx.input.getX() < 1200  /// первая кнопка лейка
+                && Gdx.input.getY() > 400 && Gdx.input.getY() < 600){
+            myGdxGame.setScreen(myGdxGame.FirstDayNight);
+        }
         batch.begin();
         batch.draw(textMapTexture, 50, 80, 2150, 950);
         batch.end();

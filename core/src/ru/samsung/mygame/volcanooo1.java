@@ -37,7 +37,8 @@ public class volcanooo1 implements Screen {
             }
         } else {
             isPressedOnStart = false;
-        }//доп
+        }
+
         batch.begin();
         batch.draw(textMapTexture, 50, 80, 2150, 950);
         batch.end();
