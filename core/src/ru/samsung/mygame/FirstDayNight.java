@@ -105,9 +105,9 @@ public class FirstDayNight implements Screen {
 
         batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
 
-        TextureRegion currentTexture = isWalking ? currentFrame : new TextureRegion(img);
+        TextureRegion currentTexture = isWalking ? new TextureRegion(currentFrame) : new TextureRegion(img);
         currentTexture.flip(deltaPos.x < 0, false);
-        batch.draw(currentTexture, pos.x, pos.y, 512, 512);
+        batch.draw(currentTexture, pos.x-256, pos.y, 512, 512);
 //        if (!drawText) {
 //            batch.draw(currentFrame, pos.x, pos.y, 150, 150);
 //        } else {

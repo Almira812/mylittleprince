@@ -78,7 +78,7 @@ public class DrinkRoseGameScreen3 implements Screen {
         }
         batch.begin();
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
-        batch.draw(currentFrame,50,  80, 2150, 950); // если персонаж двигается, то включается анимация
+        batch.draw(currentFrame,220, 90, 1800, 900); // если персонаж двигается, то включается анимация
         batch.end();
     }
 
