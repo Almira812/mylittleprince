@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ru.samsung.mygame.in2;
 
-public class DrinkRoseGameScreen implements Screen {
+public class DrinkRoseGameScreen2 implements Screen {
     MyGdxGame myGdxGame;
     SpriteBatch batch;
     BitmapFont font;
@@ -18,7 +18,7 @@ public class DrinkRoseGameScreen implements Screen {
     Vector2 pos;
     OrthographicCamera camera;
 
-    public DrinkRoseGameScreen(MyGdxGame myGdxGame) {
+    public DrinkRoseGameScreen2(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
     }
 
@@ -26,7 +26,7 @@ public class DrinkRoseGameScreen implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        textMapTexture = new Texture("111.png");
+        textMapTexture = new Texture("Drink2.png");
         pos = new Vector2(820, 440); ///////////
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(225, 225, 0);
@@ -57,16 +57,15 @@ public class DrinkRoseGameScreen implements Screen {
 
             if (Gdx.input.getX() > 550 && Gdx.input.getX() < 700  /// первая кнопка лейка
                     && Gdx.input.getY() > 150 && Gdx.input.getY() < 250)
-                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen1);
+                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen3);
 
             if (Gdx.input.getX() > 1450 && Gdx.input.getX() < 1600  /// вторая кнопка солнце
                     && Gdx.input.getY() > 150 && Gdx.input.getY() < 250)
-                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen1);
+                myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen3);
 
         }
         batch.begin();
         batch.draw(textMapTexture, 220, 90, 1800, 900);
-
         batch.end();
     }
 

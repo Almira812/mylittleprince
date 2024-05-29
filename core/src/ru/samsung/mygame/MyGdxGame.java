@@ -8,7 +8,11 @@ import ru.samsung.mygame.in2;
 public class MyGdxGame extends Game {
     public MainMenuScreen mainMenuScreen;
     public ProtectRoseGameScreen protectRoseGameScreen;
-    public DrinkRoseGameScreen drinkRoseGameScreen;
+    public DrinkRoseGameScreen drinkRoseGameScreen; //SecondDayNight
+    public DrinkRoseGameScreen1 drinkRoseGameScreen1;
+    public DrinkRoseGameScreen2 drinkRoseGameScreen2;
+    public DrinkRoseGameScreen3 drinkRoseGameScreen3;
+    public DrinkRoseGameScreen4 drinkRoseGameScreen4;
     public IntroductionScreen introduction;
     public CleanPlanetScreen cleanPlanetScreen;
 
@@ -74,6 +78,10 @@ public class MyGdxGame extends Game {
         mainMenuScreen = new MainMenuScreen(this);
         protectRoseGameScreen = new ProtectRoseGameScreen(this);
         drinkRoseGameScreen = new DrinkRoseGameScreen(this);
+        drinkRoseGameScreen1 = new DrinkRoseGameScreen1(this);
+        drinkRoseGameScreen2 = new DrinkRoseGameScreen2(this);
+        drinkRoseGameScreen3 = new DrinkRoseGameScreen3(this);
+        drinkRoseGameScreen4 = new DrinkRoseGameScreen4(this);
         introduction = new IntroductionScreen(this);
         cleanPlanetScreen = new CleanPlanetScreen(this);
 
