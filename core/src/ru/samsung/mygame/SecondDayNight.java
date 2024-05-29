@@ -91,7 +91,7 @@ public class SecondDayNight implements Screen {
 
             if (pos.x > 1480 && pos.x < 1780  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > 0 && pos.y < 550)
-                myGdxGame.setScreen(myGdxGame.int6); // он переводит игрока на следующий экран (на игру вулканоооо)
+                myGdxGame.setScreen(myGdxGame.int11); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }
@@ -106,7 +106,6 @@ public class SecondDayNight implements Screen {
 
         batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
 
-        batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
         TextureRegion currentTexture = isWalking ? new TextureRegion(currentFrame) : new TextureRegion(img);
         currentTexture.flip(deltaPos.x < 0, false);
         batch.draw(currentTexture, pos.x-256, pos.y, 512, 512);

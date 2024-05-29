@@ -68,6 +68,8 @@ public class SecondDaySun implements Screen {
 
         isWalking = false; // чтобы анимации просто так не работала
 
+        Vector2 deltaPos = new Vector2();
+
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
             int y = Gdx.graphics.getHeight() - Gdx.input.getY();
@@ -78,7 +80,7 @@ public class SecondDaySun implements Screen {
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(8f); // скорость хождения принца
+            deltaPos = new Vector2(deltaX, deltaY).nor().scl(8f); // скорость хождения принца
             if (deltaPos.x + pos.x > -200 && deltaPos.x + pos.x < 2180)
                 pos.x += deltaPos.x;
             if (deltaPos.y + pos.y > -250 && deltaPos.y + pos.y < 400)
@@ -86,8 +88,8 @@ public class SecondDaySun implements Screen {
 
             isWalking = true; // при каких-то условиях включается анимация
 
-            if (pos.x > 1200 && pos.x < 1500  ///проверка колпака. Если колпак покрывает розу, то
-                    && pos.y > 330 && pos.y < 550)
+            if (pos.x > 1480 && pos.x < 1780  ///проверка колпака. Если колпак покрывает розу, то
+                    && pos.y > 0 && pos.y < 550)
                 myGdxGame.setScreen(myGdxGame.drinkRoseGameScreen); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
@@ -103,10 +105,9 @@ public class SecondDaySun implements Screen {
 
         batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
 
-        if (isWalking)
-            batch.draw(currentFrame, pos.x, pos.y, 512, 512); // если персонаж двигается, то включается анимация /750,840 / 100,117
-        else
-            batch.draw(img, pos.x, pos.y, 512, 512);
+        TextureRegion currentTexture = isWalking ? new TextureRegion(currentFrame) : new TextureRegion(img);
+        currentTexture.flip(deltaPos.x < 0, false);
+        batch.draw(currentTexture, pos.x-256, pos.y, 512, 512);
 //        if (!drawText) {
 //            batch.draw(currentFrame, pos.x, pos.y, 150, 150);
 //        } else {

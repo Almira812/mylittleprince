@@ -37,7 +37,7 @@ public class DrinkRoseGameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(15 / 255f, 19 / 255f, 74 / 255f, 1);
+        ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();

@@ -1,5 +1,4 @@
 package ru.samsung.mygame;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -59,21 +58,19 @@ public class DrinkRoseGameScreen4 implements Screen {
             if (deltaPos.y + pos.y > -300 && deltaPos.y + pos.y < 900)// ограничение границ поля
                 pos.y += deltaPos.y;
 
+            if (Gdx.input.getX() > 550 && Gdx.input.getX() < 700  /// первая кнопка лейка
+                    && Gdx.input.getY() > 150 && Gdx.input.getY() < 250)
+                myGdxGame.setScreen(myGdxGame.SecondDayNight);
 
-            if (Gdx.input.isTouched()) {
-                if (!isPressedOnStart) {
-                    isWalking = false; // при каких-то условиях включается анимация можно изменить
-                    myGdxGame.setScreen(myGdxGame.int12);
-                }
-            } else {
-                isPressedOnStart = false;
+            if (Gdx.input.getX() > 1450 && Gdx.input.getX() < 1600  /// вторая кнопка солнце
+                    && Gdx.input.getY() > 150 && Gdx.input.getY() < 250)
+                myGdxGame.setScreen(myGdxGame.SecondDayNight);
 
-            }
-            batch.begin();
-            batch.draw(textMapTexture, 220, 90, 1800, 900);
-
-            batch.end();
         }
+        batch.begin();
+        batch.draw(textMapTexture, 220, 90, 1800, 900);
+
+        batch.end();
     }
 
 

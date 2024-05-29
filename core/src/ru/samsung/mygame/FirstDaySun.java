@@ -95,6 +95,10 @@ public class FirstDaySun implements Screen {
 
         }
 
+        //camera.position.set(pos, 0);
+        //camera.update();
+        //batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         stateTime += Gdx.graphics.getDeltaTime(); // что с анимацией
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
