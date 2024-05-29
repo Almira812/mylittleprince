@@ -86,16 +86,12 @@ public class FirstDaySun implements Screen {
 
             isWalking = true; // при каких-то условиях включается анимация
 
-            if (pos.x > 900 && pos.x < 1200  ///проверка колпака. Если колпак покрывает розу, то
+            if (pos.x > 1000 && pos.x < 1200  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > 30 && pos.y < 250)
                 myGdxGame.setScreen(myGdxGame.volcanooo1); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }
-
-        //camera.position.set(pos, 0);
-        //camera.update();
-        //batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
         stateTime += Gdx.graphics.getDeltaTime(); // что с анимацией

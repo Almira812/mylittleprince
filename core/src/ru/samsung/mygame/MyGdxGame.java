@@ -49,7 +49,6 @@ public class MyGdxGame extends Game {
     public in28 int28;
     public in29 int29;
     public in30 int30;
-
     public in31 int31;
     public in32 int32;
     public in33 int33;
@@ -58,6 +57,7 @@ public class MyGdxGame extends Game {
     public in36 int36;
     public in37 int37;
     public in38 int38;
+
     public FirstDaySun FirstDaySun;
     public FirstDayNight FirstDayNight;
     public SecondDaySun SecondDaySun;
