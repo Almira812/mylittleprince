@@ -2,6 +2,7 @@ package ru.samsung.mygame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,6 +15,8 @@ public class MainMenuScreen implements Screen {
     SpriteBatch batch;
     BitmapFont font;
     Texture textMapTexture;
+    Music music;
+
 
     public MainMenuScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -21,6 +24,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/7. November Sun (ft. Claudia Lessing) (MASTER).mp3"));
         batch = new SpriteBatch();
         font = new BitmapFont();
         textMapTexture = new Texture("menu.png");
@@ -28,6 +32,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        music.play(); // запускает музыку
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
         if (Gdx.input.getX() > 890 && Gdx.input.getX() < 1330  /// первая кнопка лейка
                 && Gdx.input.getY() > 600 && Gdx.input.getY() < 700){

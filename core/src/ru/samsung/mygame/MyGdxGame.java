@@ -13,7 +13,7 @@ public class MyGdxGame extends Game {
     public DrinkRoseGameScreen2 drinkRoseGameScreen2;
     public DrinkRoseGameScreen3 drinkRoseGameScreen3;
     public DrinkRoseGameScreen4 drinkRoseGameScreen4;
-    public IntroductionScreen introduction;
+    public IntroductionScreen introduction; //Это планета - астероид
     public CleanPlanetScreen cleanPlanetScreen;
 
     public volcanooo1 volcanooo1;
@@ -22,45 +22,50 @@ public class MyGdxGame extends Game {
     public volcanooo4 volcanooo4;
 
 
-    public in2 int2;
-    public in3 int3;
-    public in4 int4;
-    public in5 int5;
-    public in6 int6;
-    public in7 int7;
-    public in8 int8;
-    public in9 int9;
-    public in10 int10;
-    public in11 int11;
-    public in12 int12;
-    public in13 int13;
-    public in14 int14;
-    public in15 int15;
-    public in16 int16;
-    public in17 int17;
-    public in18 int18;
-    public in19 int19;
-    public in20 int20;
-    public in21 int21;
-    public in22 int22;
-    public in23 int23;
-    public in24 int24;
-    public in24_1 in24_1;
+    public in2 int2; //Она была чуть больше
+    public in3 int3; //И совершено один смотрел
+    public in4 int4; // Встал поутру, умылся
+    public in5 int5; // И сразу же приведи в порядок
+    public in6 int6; // Пора спать
 
-    public in25 int25;
-    public in26 int26;
-    public in27 int27;
-    public in28 int28;
-    public in29 int29;
-    public in30 int30;
-    public in31 int31;
-    public in32 int32;
-    public in33 int33;
-    public in34 int34;
-    public in35 int35;
-    public in36 int36;
-    public in37 int37;
-    public in38 int38;
+    public in7 int7; // Следующий
+
+    public in8 int8; // Что за крохотный
+    public in9 int9; // на все остальные ростки
+    public in10 int10; // ...
+    public in11 int11;// Пора спать
+
+    public in12 int12; // Следующий
+
+    public in13 int13; // Ах, я насилу проснулась...
+    public in14 int14; // Я еще совсем
+    public in15 int15; // Как вы прекрасны
+    public in16 int16; // Да, правда?
+    public in17 int17; // с солнцем
+    public in18 int18; //Когда настанет вечер
+    public in19 int19; // У вас тут очень холодно
+    public in20 int20; // Там, откуда я родом
+    public in21 int21; // Подул ветер
+    public in22 int22; // Кхе...
+    public in23 int23; // Где же ширма?
+    public in24 int24; // Я хотел ее принести
+
+    public in24_1 in24_1; // Следующий
+
+    public in25 int25;  // Прощайте
+    public in26 int26; // ...
+    public in27 int27; // Прощайте
+    public in28 int28; // Кхе...
+    public in29 int29; // Я была глупа.
+    public in30 int30; // Да, да я люблю тебя
+    public in31 int31; // Да это было не важно
+    public in32 int32; // Как и я
+    public in33 int33; // Постарайся быть счастливым
+    public in34 int34; // он мне больше не нужен
+    public in35 int35; // Но ветер
+    public in36 int36; // Не так уж я простужена...
+    public in37 int37; // Пойдет мне на пользу
+    public in38 int38; // Ведь я цветок
 
     public FirstDaySun FirstDaySun;
     public FirstDayNight FirstDayNight;

@@ -18,13 +18,18 @@ public class FirstDaySun implements Screen {
     BitmapFont font;
     Texture img;
     Texture textMapTexture;
+    Texture fox;
     Vector2 pos;
     OrthographicCamera camera;
     private boolean drawText = true;
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
+    Texture walkSheetF;  // что-то с анимацией FOX
+    Animation<TextureRegion> walkAnimationF; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
+    float stateTimeF;
     private static final int FRAME_COLS = 9, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLSF = 22;//сколько столбцов, сколько строк в анимации FOX
     boolean isWalking; // что-то с анимацией
 
     public FirstDaySun(MyGdxGame myGdxGame) {
@@ -39,6 +44,7 @@ public class FirstDaySun implements Screen {
         font = new BitmapFont();
         img = new Texture("dvig prince all1.png");
         textMapTexture = new Texture("firstdaysun.png");
+        fox = new Texture("fox.png");
         pos = new Vector2(0, 0);
         //camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //camera.position.set(-50, -50, 0);
@@ -46,6 +52,7 @@ public class FirstDaySun implements Screen {
 
 
         walkSheet = new Texture(Gdx.files.internal("dvig prince atlas.png")); // находит картинку с анимацией
+        walkSheetF = new Texture(Gdx.files.internal("22fox dvig.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
@@ -58,8 +65,20 @@ public class FirstDaySun implements Screen {
             }
         }
 
-        walkAnimation = new Animation<TextureRegion>(0.05f, walkFrames); // время между переходами в анимации
+        TextureRegion[][] tmpF = TextureRegion.split(walkSheetF,
+                walkSheetF.getWidth() / FRAME_COLSF,
+                walkSheetF.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку
 
+        TextureRegion[] walkFramesF = new TextureRegion[FRAME_COLSF * FRAME_ROWS]; // соединяет части картинки с анимацией в одну строчку
+        int indexF = 0;
+        for (int i = 0; i < FRAME_ROWS; i++) {
+            for (int j = 0; j < FRAME_COLSF; j++) {
+                walkFramesF[indexF++] = tmpF[i][j];
+            }
+        }
+
+        walkAnimation = new Animation<TextureRegion>(0.05f, walkFrames); // время между переходами в анимации
+        walkAnimationF = new Animation<TextureRegion>(0.05f, walkFramesF); // время между переходами в анимации
     }
 
     @Override
@@ -67,6 +86,8 @@ public class FirstDaySun implements Screen {
         ScreenUtils.clear(15 / 255f, 19 / 255f, 74 / 255f, 1);
 
         isWalking = false; // чтобы анимации просто так не работала
+
+
 
         Vector2 deltaPos = new Vector2();
 
@@ -100,19 +121,34 @@ public class FirstDaySun implements Screen {
         //batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
+
+        if (stateTimeF < (FRAME_COLSF * FRAME_ROWS) * 0.1f) {
+            stateTimeF += delta;
+        } else {
+            stateTimeF = (FRAME_COLSF * FRAME_ROWS) * 0.1f;
+        }
+
         stateTime += Gdx.graphics.getDeltaTime(); // что с анимацией
+        stateTimeF += Gdx.graphics.getDeltaTime();
+
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
 
+        TextureRegion currentFrameF = walkAnimationF.getKeyFrame(stateTimeF, true);
+
         batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
+        //batch.draw(fox,100,100,512,512);
+
+        //batch.draw(currentFrameF, 100, 100, 512, 512);
+
         TextureRegion currentTexture = isWalking ? new TextureRegion(currentFrame) : new TextureRegion(img);
         currentTexture.flip(deltaPos.x < 0, false);
         batch.draw(currentTexture, pos.x-256, pos.y, 512, 512);
+        // Чтобы принц спиной не ходил
 //        if (!drawText) {
 //            batch.draw(currentFrame, pos.x, pos.y, 150, 150);
 //        } else {
 //            font.draw(batch, "Hello World!", 500, 500); // текст появляется по середине
 //        }
-
 
         batch.end();
 
