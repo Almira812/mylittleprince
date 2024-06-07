@@ -88,7 +88,7 @@ public class sunset implements Screen {
 
             if (pos.x > 1480 && pos.x < 1780  ///проверка колпака. Если колпак покрывает розу, то
                     && pos.y > 0 && pos.y < 550)
-                myGdxGame.setScreen(myGdxGame.Tobecontinued); // он переводит игрока на следующий экран (на игру вулканоооо)
+                myGdxGame.setScreen(myGdxGame.asteroud325); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }

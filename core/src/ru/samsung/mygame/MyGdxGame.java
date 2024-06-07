@@ -76,6 +76,60 @@ public class MyGdxGame extends Game {
     public sunset sunset;
     public Tobecontinued Tobecontinued;
 
+    public asteroud325 asteroud325;
+    public asteroud326 asteroud326;
+    public asteroud329 asteroud329;
+    public asteroud330 asteroud330;
+    public earth earth;
+
+
+    public king king;
+
+    public ambitious ambitious;
+    public ambitious1 ambitious1;
+    public ambitious2 ambitious2;
+    public fonar fonar;
+    public fonar1 fonar1;
+    public fonar2 fonar2;
+    public fonar3 fonar3;
+
+    public geograf geograf;
+    public geograf1 geograf1;
+    public geograf2 geograf2;
+    public geograf3 geograf3;
+    public geograf4 geograf4;
+    public geograf5 geograf5;
+    public geograf6 geograf6;
+    public geograf7 geograf7;
+
+    public snake snake;
+    public snake1 snake1;
+    public snake2 snake2;
+    public snake3 snake3;
+    public snake4 snake4;
+    public snake5 snake5;
+    public snake6 snake6;
+    public snake7 snake7;
+    public snake8 snake8;
+    public snake9 snake9;
+    public snake10 snake10;
+    public snake11 snake11;
+    public snake12 snake12;
+
+    public fox fox; //before
+    public fox1 fox1;
+    public fox2 fox2;
+    public fox3 fox3;
+    public fox4 fox4;
+    public fox5 fox5;
+    public fox6 fox6;
+    public fox7 fox7;
+    public fox8 fox8;
+
+    //public fx fx; //after
+
+
+
 
     @Override
 
@@ -146,6 +200,56 @@ public class MyGdxGame extends Game {
         sunset = new sunset(this);
 
         Tobecontinued = new Tobecontinued(this);
+
+        asteroud325 = new asteroud325(this);
+        asteroud326 = new asteroud326(this);
+        asteroud329 = new asteroud329(this);
+        asteroud330 = new asteroud330(this);
+        earth = new earth(this);
+
+        king = new king(this);
+
+        ambitious = new ambitious(this);
+        ambitious1 = new ambitious1(this);
+        ambitious2 = new ambitious2(this);
+
+        fonar = new fonar(this);
+        fonar1 = new fonar1(this);
+        fonar2 = new fonar2(this);
+        fonar3 = new fonar3(this);
+
+        geograf = new geograf(this);
+        geograf1 = new geograf1(this);
+        geograf2 = new geograf2(this);
+        geograf3 = new geograf3(this);
+        geograf4 = new geograf4(this);
+        geograf5 = new geograf5(this);
+        geograf6 = new geograf6(this);
+        geograf7 = new geograf7(this);
+
+        snake = new snake(this);
+        snake1 = new snake1(this);
+        snake2 = new snake2(this);
+        snake3 = new snake3(this);
+        snake4 = new snake4(this);
+        snake5 = new snake5(this);
+        snake6 = new snake6(this);
+        snake7 = new snake7(this);
+        snake8 = new snake8(this);
+        snake9 = new snake9(this);
+        snake10 = new snake10(this);
+        snake11 = new snake11(this);
+        snake12 = new snake12(this);
+
+        fox = new fox(this);
+        fox1 = new fox1(this);
+        fox2 = new fox2(this);
+        fox3 = new fox3(this);
+        fox4 = new fox4(this);
+        fox5 = new fox5(this);
+        fox6 = new fox6(this);
+        fox7 = new fox7(this);
+        fox8 = new fox8(this);
 
         setScreen(mainMenuScreen);
     }

@@ -36,7 +36,7 @@ public class MainMenuScreen implements Screen {
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
         if (Gdx.input.getX() > 890 && Gdx.input.getX() < 1330  /// первая кнопка лейка
                 && Gdx.input.getY() > 600 && Gdx.input.getY() < 700){
-            myGdxGame.setScreen(myGdxGame.introduction);
+            myGdxGame.setScreen(myGdxGame.introduction); //introduction
 
         }
         batch.begin();
