@@ -72,7 +72,7 @@ public class asteroud326 implements Screen {
         if (sprince.getBody().getPosition().y < 0) {
             myGdxGame.setScreen(myGdxGame.asteroud326);
         }
-        if (sprince.getBody().getPosition().x > 600) {
+        if (sprince.getBody().getPosition().x > 550) {
             myGdxGame.setScreen(myGdxGame.ambitious);
         }
 
@@ -81,7 +81,7 @@ public class asteroud326 implements Screen {
 
         tmr.render();
         stage.draw();
-        b2ddr.render(world, stage.getCamera().combined);
+        //b2ddr.render(world, stage.getCamera().combined);
     }
 
     @Override

@@ -19,7 +19,7 @@ public class geograf2 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 12, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 3, FRAME_ROWS = 4;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
 

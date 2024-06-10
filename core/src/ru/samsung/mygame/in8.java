@@ -19,7 +19,7 @@ public class in8 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 31, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 8, FRAME_ROWS = 4;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
 
@@ -32,7 +32,7 @@ public class in8 implements Screen {
         batch = new SpriteBatch();
         font = new BitmapFont();
         //textMapTexture = new Texture("ch2.png");
-        walkSheet = new Texture(Gdx.files.internal("frost.8.31.png")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("day2/frost.8.31.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку

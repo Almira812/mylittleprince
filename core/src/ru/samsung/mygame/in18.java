@@ -18,7 +18,7 @@ public class in18 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 41, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 7, FRAME_ROWS = 6;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
 
@@ -30,7 +30,7 @@ public class in18 implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        walkSheet = new Texture(Gdx.files.internal("r.18.41.png")); // находит картинку с анимацией
+        walkSheet = new Texture(Gdx.files.internal("day3/r.18.41.png")); // находит картинку с анимацией
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
                 walkSheet.getHeight() / FRAME_ROWS); // разрезает картинку с анимацией чтобы они были в одну строчку

@@ -19,7 +19,7 @@ public class fox8 implements Screen {
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
     float stateTime; // таймер, чтобы считать сколько прошло между кадрами в анимации
-    private static final int FRAME_COLS = 49, FRAME_ROWS = 1;//сколько столбцов, сколько строк в анимации
+    private static final int FRAME_COLS = 7, FRAME_ROWS = 7;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
 
@@ -54,7 +54,7 @@ public class fox8 implements Screen {
         if (Gdx.input.isTouched()) {
             if (!isPressedOnStart) {
                 isWalking = false; // при каких-то условиях включается анимация можно изменить
-                //myGdxGame.setScreen(myGdxGame.fox); //game2                  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                myGdxGame.setScreen(myGdxGame.gamefox); //game2                  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         } else {
             isPressedOnStart = false;

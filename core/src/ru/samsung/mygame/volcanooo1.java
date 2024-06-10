@@ -24,7 +24,7 @@ public class volcanooo1 implements Screen {
     public void show() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        textMapTexture = new Texture("volcanooo1.png");
+        textMapTexture = new Texture("volcanooo/volcanooo1.png");
         isPressedOnStart = Gdx.input.isTouched();//доп
     }
 

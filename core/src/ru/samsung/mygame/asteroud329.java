@@ -72,7 +72,7 @@ public class asteroud329 implements Screen {
         if (sprince.getBody().getPosition().y < 0) { // если персонаж упал
             myGdxGame.setScreen(myGdxGame.asteroud329);
         }
-        if (sprince.getBody().getPosition().x > 600) { // если прошел
+        if (sprince.getBody().getPosition().x > 550) { // если прошел
             myGdxGame.setScreen(myGdxGame.fonar);
         }
 
@@ -81,7 +81,7 @@ public class asteroud329 implements Screen {
 
         tmr.render();
         stage.draw();
-        b2ddr.render(world, stage.getCamera().combined);
+        //b2ddr.render(world, stage.getCamera().combined);
     }
 
     @Override

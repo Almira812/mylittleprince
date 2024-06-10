@@ -68,7 +68,7 @@ public class DrinkRoseGameScreen4 implements Screen {
 
         }
         batch.begin();
-        batch.draw(textMapTexture, 220, 90, 1800, 900);
+        //batch.draw(textMapTexture, 220, 90, 1800, 900);
 
         batch.end();
     }

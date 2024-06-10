@@ -31,7 +31,7 @@ public class Sprince extends Actor {
         super.act(delta);
 
         getBody().setLinearVelocity(
-                movement * 20, //15
+                movement * 20, //15 //скорость?
                 getBody().getLinearVelocity().y
         );
     }

@@ -72,8 +72,8 @@ public class earth implements Screen {
         if (sprince.getBody().getPosition().y < 0) { // если персонаж упал
             myGdxGame.setScreen(myGdxGame.earth);
         }
-        if (sprince.getBody().getPosition().x > 600) { // если прошел
-            myGdxGame.setScreen(myGdxGame.snake);
+        if (sprince.getBody().getPosition().x > 550) { // если прошел
+            myGdxGame.setScreen(myGdxGame.FourthDaySun);
         }
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -81,7 +81,7 @@ public class earth implements Screen {
 
         tmr.render();
         stage.draw();
-        b2ddr.render(world, stage.getCamera().combined);
+       // b2ddr.render(world, stage.getCamera().combined);
     }
 
     @Override

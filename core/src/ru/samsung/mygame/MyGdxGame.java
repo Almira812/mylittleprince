@@ -1,11 +1,15 @@
 package ru.samsung.mygame;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 
 import ru.samsung.mygame.in2;
 
 public class MyGdxGame extends Game {
+    Music music;
+
     public MainMenuScreen mainMenuScreen;
     public ProtectRoseGameScreen protectRoseGameScreen;
     public DrinkRoseGameScreen drinkRoseGameScreen; //SecondDayNight
@@ -82,12 +86,12 @@ public class MyGdxGame extends Game {
     public asteroud330 asteroud330;
     public earth earth;
 
-
     public king king;
 
     public ambitious ambitious;
     public ambitious1 ambitious1;
     public ambitious2 ambitious2;
+
     public fonar fonar;
     public fonar1 fonar1;
     public fonar2 fonar2;
@@ -101,6 +105,8 @@ public class MyGdxGame extends Game {
     public geograf5 geograf5;
     public geograf6 geograf6;
     public geograf7 geograf7;
+
+    public FourthDaySun FourthDaySun; //первая встреча со змеей
 
     public snake snake;
     public snake1 snake1;
@@ -116,6 +122,12 @@ public class MyGdxGame extends Game {
     public snake11 snake11;
     public snake12 snake12;
 
+    public FourthDayNight FourthDayNight;
+
+    public next4 next4;
+
+    public FifthDaySun FifthDaySun;
+
     public fox fox; //before
     public fox1 fox1;
     public fox2 fox2;
@@ -126,9 +138,37 @@ public class MyGdxGame extends Game {
     public fox7 fox7;
     public fox8 fox8;
 
-    //public fx fx; //after
+    public FifthDaySunTwo FifthDaySunTwo;
 
+    public gamefox gamefox;
 
+    public fx fx; //after
+    public fx1 fx1;
+    public fx2 fx2;
+    public fx3 fx3;
+    public fx4 fx4;
+    public fx5 fx5;
+    public fx6 fx6;
+    public fx7 fx7;
+    public fx8 fx8;
+    public fx9 fx9;
+    public fx10 fx10;
+    public fx11 fx11;
+
+    public FifthDayNight FifthDayNight;
+
+    public next5 next5;
+
+    public SixthDaySun SixthDaySun;
+
+    public snk snk;
+    public snk1 snk1;
+    public snk2 snk2;
+    public snk3 snk3;
+    public snk4 snk4;
+    public snk5 snk5;
+
+    public gamesnake gamesnake;
 
 
     @Override
@@ -201,10 +241,10 @@ public class MyGdxGame extends Game {
 
         Tobecontinued = new Tobecontinued(this);
 
-        asteroud325 = new asteroud325(this);
-        asteroud326 = new asteroud326(this);
-        asteroud329 = new asteroud329(this);
-        asteroud330 = new asteroud330(this);
+        asteroud325 = new asteroud325(this); //король
+        asteroud326 = new asteroud326(this); //честолюбец
+        asteroud329 = new asteroud329(this); //фонарщик
+        asteroud330 = new asteroud330(this); //географ
         earth = new earth(this);
 
         king = new king(this);
@@ -227,6 +267,8 @@ public class MyGdxGame extends Game {
         geograf6 = new geograf6(this);
         geograf7 = new geograf7(this);
 
+        FourthDaySun = new FourthDaySun(this);
+
         snake = new snake(this);
         snake1 = new snake1(this);
         snake2 = new snake2(this);
@@ -241,6 +283,12 @@ public class MyGdxGame extends Game {
         snake11 = new snake11(this);
         snake12 = new snake12(this);
 
+        FourthDayNight = new FourthDayNight(this);
+
+        next4 = new next4(this);
+
+        FifthDaySun = new FifthDaySun(this); // встреча с лисом
+
         fox = new fox(this);
         fox1 = new fox1(this);
         fox2 = new fox2(this);
@@ -251,6 +299,55 @@ public class MyGdxGame extends Game {
         fox7 = new fox7(this);
         fox8 = new fox8(this);
 
+        FifthDaySunTwo = new FifthDaySunTwo(this);
+
+        gamefox = new gamefox(this);
+
+        fx = new fx(this);
+        fx1 = new fx1(this);
+        fx2 = new fx2(this);
+        fx3 = new fx3(this);
+        fx4 = new fx4(this);
+        fx5 = new fx5(this);
+        fx6 = new fx6(this);
+        fx7 = new fx7(this);
+        fx8 = new fx8(this);
+        fx9 = new fx9(this);
+        fx10 = new fx10(this);
+        fx11 = new fx11(this);
+
+        FifthDayNight = new FifthDayNight(this);
+
+        next5 = new next5(this);
+
+        SixthDaySun = new SixthDaySun(this);
+
+        snk = new snk(this);
+        snk1 = new snk1(this);
+        snk2 = new snk2(this);
+        snk3 = new snk3(this);
+        snk4 = new snk4(this);
+        snk5 = new snk5(this);
+
+        gamesnake = new gamesnake(this);
+
         setScreen(mainMenuScreen);
+
+    }
+
+    public void playMenuMusic(){
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/7. November Sun (ft. Claudia Lessing) (MASTER).mp3")); //одна для всех music
+        music.setLooping(true);
+        music.play();
+    }
+    public void stopMenuMusic(){
+        music.setLooping(false);
+        music.stop();
+    }
+    public void playGameMusic(){
+
+    }
+    public void stopGameMusic(){
+
     }
 }

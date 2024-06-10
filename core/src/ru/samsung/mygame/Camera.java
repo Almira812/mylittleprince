@@ -12,6 +12,8 @@ public class Camera {
         camera.position.set(pos.x, pos.y, camera.position.z);
     }
 
+
+
     public void update(Vector2 pos) {
         camera.position.set(pos.x, pos.y, camera.position.z);
         camera.update();
