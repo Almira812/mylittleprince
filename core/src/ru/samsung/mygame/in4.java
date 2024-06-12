@@ -2,12 +2,15 @@ package ru.samsung.mygame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 
 public class in4 implements Screen {
@@ -22,6 +25,8 @@ public class in4 implements Screen {
     private static final int FRAME_COLS = 7, FRAME_ROWS = 6;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
+    OrthographicCamera camera;
+    Viewport viewport;
 
 
     public in4(MyGdxGame myGdxGame) {
@@ -30,6 +35,10 @@ public class in4 implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2150, 950, camera);
+
         batch = new SpriteBatch();
         font = new BitmapFont();
         //textMapTexture = new Texture("ch2.png");
@@ -63,6 +72,10 @@ public class in4 implements Screen {
             isPressedOnStart = false;
         }
 
+        camera.position.set(1080, 520,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         if (stateTime < (FRAME_COLS * FRAME_ROWS) * 0.05f) {
             stateTime += delta;
@@ -70,7 +83,7 @@ public class in4 implements Screen {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f ;
         }
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
-        batch.draw(currentFrame,50,  80, 2150, 950); // если персонаж двигается, то включается анимация
+        batch.draw(currentFrame,50,  80, 2050, 890); // если персонаж двигается, то включается анимация
         batch.end();
     }
 
@@ -81,6 +94,7 @@ public class in4 implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 

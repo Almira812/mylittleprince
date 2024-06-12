@@ -8,6 +8,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+
 import ru.samsung.mygame.in2;
 
 public class DrinkRoseGameScreen4 implements Screen {
@@ -17,6 +20,7 @@ public class DrinkRoseGameScreen4 implements Screen {
     Texture textMapTexture;
     Vector2 pos;
     OrthographicCamera camera;
+    Viewport viewport;
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart; /// импорт всех библиотек
 
@@ -32,8 +36,9 @@ public class DrinkRoseGameScreen4 implements Screen {
         textMapTexture = new Texture("Drink4.png");
         pos = new Vector2(820, 440); ///////////
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(225, 225, 0);
-        camera.update();
+        viewport = new FitViewport(2150, 950, camera);
+//        camera.position.set(225, 225, 0);
+//        camera.update();
 
 
     }
@@ -67,6 +72,10 @@ public class DrinkRoseGameScreen4 implements Screen {
                 myGdxGame.setScreen(myGdxGame.SecondDayNight);
 
         }
+        camera.position.set(1080, 520,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         //batch.draw(textMapTexture, 220, 90, 1800, 900);
 
@@ -82,6 +91,7 @@ public class DrinkRoseGameScreen4 implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 

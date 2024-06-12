@@ -11,6 +11,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+
 import ru.samsung.mygame.in2;
 
 import java.util.Timer;
@@ -29,7 +32,8 @@ public class IntroductionScreen implements Screen {
     boolean isWalking; // что-то с анимацией
     int s = 0;
     boolean isPressedOnStart;
-
+    OrthographicCamera camera;
+    Viewport viewport;
 
     public IntroductionScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -37,6 +41,10 @@ public class IntroductionScreen implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2150, 950, camera);
+
         batch = new SpriteBatch();
         font = new BitmapFont();
         //textMapTexture = new Texture("ch2.png");
@@ -76,9 +84,14 @@ public class IntroductionScreen implements Screen {
         } else {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f ;
         }
+
+        camera.position.set(1080, 520,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
-        batch.draw(currentFrame,50,  80, 2150, 950); // если персонаж двигается, то включается анимация
+        batch.draw(currentFrame,50,  80, 2050, 890); // если персонаж двигается, то включается анимация
         batch.end();
     }
 
@@ -90,6 +103,7 @@ public class IntroductionScreen implements Screen {
     @Override
     public void resize(int width, int height) {
 
+        viewport.update(width, height);
     }
 
     @Override

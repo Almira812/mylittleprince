@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class FirstDayNight implements Screen {
     MyGdxGame myGdxGame;
@@ -20,6 +22,7 @@ public class FirstDayNight implements Screen {
     Texture textMapTexture;
     Vector2 pos;
     OrthographicCamera camera;
+    Viewport viewport;
     private boolean drawText = true;
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
@@ -34,6 +37,9 @@ public class FirstDayNight implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2250, 1100, camera);
 
         batch = new SpriteBatch();
         font = new BitmapFont();
@@ -72,15 +78,20 @@ public class FirstDayNight implements Screen {
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
-            int y = Gdx.graphics.getHeight() - Gdx.input.getY();
+            int y = Gdx.input.getY();
 
             Vector3 worldPos = new Vector3(x, y, 0);
-            //camera.unproject(worldPos);
+            camera.unproject(worldPos);
 
-            float deltaX = worldPos.x - pos.x;
-            float deltaY = worldPos.y - pos.y;
+            float deltaX = (worldPos.x - pos.x);
+            float deltaY = (worldPos.y - pos.y);
 
             deltaPos = new Vector2(deltaX, deltaY).nor().scl(8f); // скорость хождения принца
+//            if ((float)(deltaPos.x + pos.x) / Gdx.graphics.getWidth() > -200.000 /1130.000 && (float)(deltaPos.x + pos.x) / Gdx.graphics.getWidth() < 2180.000 /1130.000)
+//                pos.x += deltaPos.x ;
+//            if ((float)(deltaPos.y + pos.y) / Gdx.graphics.getHeight()> -250.000/550.000 && (float)(deltaPos.y + pos.y)/ Gdx.graphics.getHeight()  < 400.000/550.000)
+//                pos.y += deltaPos.y;
+
             if (deltaPos.x + pos.x > -200 && deltaPos.x + pos.x < 2180)
                 pos.x += deltaPos.x;
             if (deltaPos.y + pos.y > -250 && deltaPos.y + pos.y < 400)
@@ -88,12 +99,20 @@ public class FirstDayNight implements Screen {
 
             isWalking = true; // при каких-то условиях включается анимация
 
-            if (pos.x > 1480 && pos.x < 1780  ///проверка колпака. Если колпак покрывает розу, то
-                    && pos.y > 0 && pos.y < 550)
+            if ( pos.x  > 1480 && pos.x  < 1780  ///проверка колпака. Если колпак покрывает розу, то
+                    && pos.y> 0 && pos.y < 550)
                 myGdxGame.setScreen(myGdxGame.int6); // он переводит игрока на следующий экран (на игру вулканоооо)
+
+//            if ((float) pos.x  / Gdx.graphics.getWidth() > 1480 && pos.x  / Gdx.graphics.getWidth() < 1780  ///проверка колпака. Если колпак покрывает розу, то
+//                    && pos.y / Gdx.graphics.getHeight()> 0 && pos.y / Gdx.graphics.getHeight()< 550)
+//                myGdxGame.setScreen(myGdxGame.int6); // он переводит игрока на следующий экран (на игру вулканоооо)
 
 
         }
+
+        camera.position.set(1130, 550,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
 
         //camera.position.set(pos, 0);
         //camera.update();
@@ -121,6 +140,7 @@ public class FirstDayNight implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 

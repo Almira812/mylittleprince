@@ -159,7 +159,7 @@ public class MyGdxGame extends Game {
 
     public next5 next5;
 
-    public SixthDaySun SixthDaySun;
+    public SixthDaySun SixthDaySun; // вторая встреча со змеей
 
     public snk snk;
     public snk1 snk1;

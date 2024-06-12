@@ -11,6 +11,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+
 import ru.samsung.mygame.in2;
 
 import java.util.Timer;
@@ -28,6 +31,8 @@ public class DrinkRoseGameScreen1 implements Screen {
     private static final int FRAME_COLS = 3, FRAME_ROWS = 3;//сколько столбцов, сколько строк в анимации
     boolean isWalking; // что-то с анимацией
     boolean isPressedOnStart;
+    OrthographicCamera camera;
+    Viewport viewport;
 
 
     public DrinkRoseGameScreen1(MyGdxGame myGdxGame) {
@@ -36,6 +41,9 @@ public class DrinkRoseGameScreen1 implements Screen {
 
     @Override
     public void show() {
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2150, 950, camera);
+
         batch = new SpriteBatch();
         font = new BitmapFont();
         walkSheet = new Texture(Gdx.files.internal("9DrinkRoseGameScreen1.png")); // находит картинку с анимацией
@@ -72,9 +80,13 @@ public class DrinkRoseGameScreen1 implements Screen {
         } else {
             stateTime = (FRAME_COLS * FRAME_ROWS) * 0.05f ;
         }
+        camera.position.set(1080, 520,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime - 0.01f, true); // что-то с анимацией
-        batch.draw(currentFrame,220, 90, 1800, 900); // если персонаж двигается, то включается анимация
+        batch.draw(currentFrame,50, 80, 2050, 890); // если персонаж двигается, то включается анимация
         batch.end();
     }
 
@@ -85,6 +97,7 @@ public class DrinkRoseGameScreen1 implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 

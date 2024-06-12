@@ -2,10 +2,14 @@ package ru.samsung.mygame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+
 import ru.samsung.mygame.in2;
 
 public class volcanooo1 implements Screen {
@@ -15,6 +19,8 @@ public class volcanooo1 implements Screen {
     BitmapFont font;
     Texture textMapTexture;
     boolean isPressedOnStart;//доп
+    OrthographicCamera camera;
+    Viewport viewport;
 
     public volcanooo1(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -22,6 +28,10 @@ public class volcanooo1 implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2150, 950, camera);
+
         batch = new SpriteBatch();
         font = new BitmapFont();
         textMapTexture = new Texture("volcanooo/volcanooo1.png");
@@ -39,8 +49,12 @@ public class volcanooo1 implements Screen {
             isPressedOnStart = false;
         }
 
+        camera.position.set(1080, 520,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
-        batch.draw(textMapTexture, 50, 80, 2150, 950);
+        batch.draw(textMapTexture, 50, 80, 2050, 890);
         batch.end();
     }
 
@@ -51,6 +65,7 @@ public class volcanooo1 implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 

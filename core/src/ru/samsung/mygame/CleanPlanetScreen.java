@@ -8,8 +8,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class CleanPlanetScreen implements Screen {
+public class CleanPlanetScreen implements Screen { //нигде не используется
     MyGdxGame myGdxGame;
     SpriteBatch batch;
     BitmapFont font;
@@ -18,6 +20,7 @@ public class CleanPlanetScreen implements Screen {
     Vector2 pos;
     OrthographicCamera camera;
     private boolean drawText = false;
+    Viewport viewport;
 
     public CleanPlanetScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -25,14 +28,16 @@ public class CleanPlanetScreen implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2150, 950, camera);
+
         batch = new SpriteBatch();
         font = new BitmapFont();
         img = new Texture("лейка.png");
         textMapTexture = new Texture("field.png");
         pos = new Vector2(0, 0); ///////////
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(225, 225, 0);
-        camera.update();
+
     }
 
     @Override
@@ -59,6 +64,11 @@ public class CleanPlanetScreen implements Screen {
                     && pos.y > -60 && pos.y < 30)
                 myGdxGame.setScreen(myGdxGame.FirstDayNight);
         }
+
+        camera.position.set(1080, 520,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         batch.draw(textMapTexture, 220, 90, 1800, 900);
         batch.draw(img, pos.x, pos.y, 350, 440);
@@ -77,7 +87,7 @@ public class CleanPlanetScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        viewport.update(width, height);
     }
 
     @Override

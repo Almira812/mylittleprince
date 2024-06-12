@@ -29,8 +29,8 @@ public class MainMenuScreen implements Screen {
     BitmapFont font;
     Texture textMapTexture;
     Music music;
-    private OrthographicCamera camera;
-    private Viewport viewport;
+    OrthographicCamera camera;
+    Viewport viewport;
     Stage stage;
     Box2DDebugRenderer b2ddr;
     OrthogonalTiledMapRenderer tmr;
@@ -46,6 +46,7 @@ public class MainMenuScreen implements Screen {
 
         camera = new OrthographicCamera();
         viewport = new FitViewport(2150, 950, camera);
+
 //        stage = new Stage(viewport);
 
 
@@ -67,9 +68,9 @@ public class MainMenuScreen implements Screen {
         //music.play(); // запускает музыку
 //        music.setLooping(true); //повторяет
         ScreenUtils.clear(32 / 255f, 26 / 255f, 150 / 255f, 1);
-        if ((float) Gdx.input.getX() / Gdx.graphics.getWidth() > 890.000 / 2050.000 && (float)Gdx.input.getX() / Gdx.graphics.getWidth() < 1330.000 / 2050.000  /// первая кнопка лейка
-                && (float)Gdx.input.getY() / Gdx.graphics.getHeight() > 550.000 / 890.000 && (float)Gdx.input.getY() / Gdx.graphics.getHeight() < 650.000 / 890.000){
-            myGdxGame.setScreen(myGdxGame.gamesnake); //introduction
+        if ((float) Gdx.input.getX() / Gdx.graphics.getWidth() > 790.000 / 2050.000 && (float)Gdx.input.getX() / Gdx.graphics.getWidth() < 1430.000 / 2050.000  /// первая кнопка лейка
+                && (float)Gdx.input.getY() / Gdx.graphics.getHeight() > 350.000 / 890.000 && (float)Gdx.input.getY() / Gdx.graphics.getHeight() < 850.000 / 890.000){
+            myGdxGame.setScreen(myGdxGame.introduction); //introduction
 
         }
 

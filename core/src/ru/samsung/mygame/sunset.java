@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class sunset implements Screen {
     MyGdxGame myGdxGame;
@@ -20,6 +22,7 @@ public class sunset implements Screen {
     Texture textMapTexture;
     Vector2 pos;
     OrthographicCamera camera;
+    Viewport viewport;
     private boolean drawText = true;
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
@@ -34,6 +37,10 @@ public class sunset implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2250, 1100, camera);
+
 
         batch = new SpriteBatch();
         font = new BitmapFont();
@@ -67,18 +74,19 @@ public class sunset implements Screen {
         ScreenUtils.clear(15 / 255f, 19 / 255f, 74 / 255f, 1);
 
         isWalking = false; // чтобы анимации просто так не работала
+        Vector2 deltaPos = new Vector2();
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
-            int y = Gdx.graphics.getHeight() - Gdx.input.getY();
+            int y = Gdx.input.getY();
 
             Vector3 worldPos = new Vector3(x, y, 0);
-            //camera.unproject(worldPos);
+            camera.unproject(worldPos);
 
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
 
-            Vector2 deltaPos = new Vector2(deltaX, deltaY).nor().scl(8f); // скорость хождения принца
+            deltaPos = new Vector2(deltaX, deltaY).nor().scl(8f); // скорость хождения принца
             if (deltaPos.x + pos.x > -200 && deltaPos.x + pos.x < 2180)
                 pos.x += deltaPos.x;
             if (deltaPos.y + pos.y > -250 && deltaPos.y + pos.y < 400)
@@ -97,16 +105,23 @@ public class sunset implements Screen {
         //camera.update();
         //batch.setProjectionMatrix(camera.combined);
 
+        camera.position.set(1130, 550,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         stateTime += Gdx.graphics.getDeltaTime(); // что с анимацией
         TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true); // что-то с анимацией
 
         batch.draw(textMapTexture, 0, 0, 2250, 1100); //2150,950
 
-        if (isWalking)
-            batch.draw(currentFrame, pos.x, pos.y, 512, 512); // если персонаж двигается, то включается анимация /750,840 / 100,117
-        else
-            batch.draw(img, pos.x, pos.y, 512, 512);
+        TextureRegion currentTexture = isWalking ? new TextureRegion(currentFrame) : new TextureRegion(img);
+        currentTexture.flip(deltaPos.x < 0, false);
+        batch.draw(currentTexture, pos.x-256, pos.y, 512, 512);
+//        if (isWalking)
+//            batch.draw(currentFrame, pos.x, pos.y, 512, 512); // если персонаж двигается, то включается анимация /750,840 / 100,117
+//        else
+//            batch.draw(img, pos.x, pos.y, 512, 512);
 //        if (!drawText) {
 //            batch.draw(currentFrame, pos.x, pos.y, 150, 150);
 //        } else {
@@ -120,6 +135,7 @@ public class sunset implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 

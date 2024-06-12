@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="25">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="25">
  <tileset firstgid="1" source="SuperPrince.tsx"/>
  <tileset firstgid="129" source="water.tsx"/>
  <tileset firstgid="130" source="dessert2.tsx"/>
+ <tileset firstgid="146" source="task.tsx"/>
  <layer id="2" name="water" width="16" height="10">
   <data encoding="csv">
 129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,
@@ -17,7 +18,7 @@
 129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129
 </data>
  </layer>
- <layer id="1" name="Слой тайлов 1" width="16" height="10">
+ <layer id="1" name="dessert" width="16" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -28,6 +29,20 @@
 0,0,0,0,0,135,135,135,0,135,0,135,0,0,0,0,
 0,0,135,0,0,135,0,0,0,135,0,135,0,0,0,0,
 0,0,135,135,135,135,135,135,135,135,135,135,135,135,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="5" name="kyst" width="16" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
@@ -51,7 +66,7 @@
  <layer id="3" name="fox" width="16" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,37,146,147,148,149,0,0,0,0,0,0,0,0,0,0,
 0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

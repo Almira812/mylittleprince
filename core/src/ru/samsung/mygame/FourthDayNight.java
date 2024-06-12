@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class FourthDayNight implements Screen {
     MyGdxGame myGdxGame;
@@ -20,6 +22,7 @@ public class FourthDayNight implements Screen {
     Texture textMapTexture;
     Vector2 pos;
     OrthographicCamera camera;
+    Viewport viewport;
     private boolean drawText = true;
     Texture walkSheet;  // что-то с анимацией
     Animation<TextureRegion> walkAnimation; // что-то с анимацией
@@ -35,6 +38,10 @@ public class FourthDayNight implements Screen {
 
     @Override
     public void show() {
+
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(2250, 1100, camera);
+
 
         batch = new SpriteBatch();
         font = new BitmapFont();
@@ -73,10 +80,10 @@ public class FourthDayNight implements Screen {
 
         if (Gdx.input.isTouched()) {
             int x = Gdx.input.getX();
-            int y = Gdx.graphics.getHeight() - Gdx.input.getY();
+            int y = Gdx.input.getY();
 
             Vector3 worldPos = new Vector3(x, y, 0);
-            //camera.unproject(worldPos);
+            camera.unproject(worldPos);
 
             float deltaX = worldPos.x - pos.x;
             float deltaY = worldPos.y - pos.y;
@@ -95,6 +102,10 @@ public class FourthDayNight implements Screen {
 
 
         }
+
+        camera.position.set(1130, 550,0); //1130,555
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
 
         //camera.position.set(pos, 0);
         //camera.update();
@@ -122,6 +133,7 @@ public class FourthDayNight implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 
